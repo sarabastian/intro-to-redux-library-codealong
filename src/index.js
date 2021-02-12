@@ -6,5 +6,11 @@ import { createStore } from 'redux'; /* code change */
 import shoppingListItemReducer from './reducers/shoppingListItemReducer.js';
 import App from './App';
 import './index.css';
+import { Provider } from 'react-redux'; /* code change */
 
-ReactDOM.render(<App />, document.getElementById('root'));
+
+const store = createStore(shoppingListItemReducer);
+
+ReactDOM.render(<Provider store={store}>
+    <App />
+    </Provider>, document.getElementById('root'));
